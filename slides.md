@@ -58,6 +58,23 @@ size: 110 x 30
 <!-- -->
 <!-- -->
 
+Thank you for coming to my TED talk
+
+---
+
+# What is a JSON Web Token?
+
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MTYyMzkwMjJ9.tbDepxpstvGdW8TC3G8zg4B6rUYAOvfzdceoH48wgRQ
 
 header.payload.signature
@@ -91,9 +108,6 @@ header.payload.signature
 
 # What is a JSON Web Token?
 
-<!-- -->
-<!-- -->
-
 ```javascript
 const crypto = require('node:crypto')
 
@@ -119,8 +133,6 @@ console.log(token)
 ---
 
 # Symmetric and Asymmetric Keys
-
-<!-- -->
 
 - Symmetric Algorithms
   - `HS256`, `HS384`, `HS512` (HMAC)
@@ -150,9 +162,25 @@ console.log(token)
 
 # How can JWTs be attacked?
 
-## `none` algorithm
-
 <!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+
+Accidentally pasting a production auth token in your slide deck
+
+---
+
+# How can JWTs be attacked?
+
+## `none` algorithm
 
 It is possible to create a JWT with no signature:
 
@@ -180,8 +208,6 @@ Mitigations:
 
 ## Key Confusion
 
-<!-- -->
-<!-- -->
 <!-- -->
 
 If the public key is accessible, it can be used to sign a new key with with an
@@ -368,12 +394,7 @@ How is it done without JWTs?
 
 ## Session Tokens
 
-<!-- -->
-<!-- -->
-
 How can I do it with JWTs?
-
-<!-- -->
 
 - Stateless JWT (store session data in JWT)
   <!-- -->
@@ -386,6 +407,8 @@ How can I do it with JWTs?
   - Flexible, just a JSON Object
     <!-- -->
   - Easier to scale
+    <!-- -->
+  - Reduce calls to database
     <!-- -->
 - Stateful JWT (payload contains session id)
 
@@ -417,7 +440,6 @@ How can I do it with JWTs?
 # Best Practices (Rules of thumb)
 
 <!-- -->
-<!-- -->
 
 - Do not use/accept the `none` algorithms
 
@@ -440,8 +462,7 @@ How can I do it with JWTs?
 
   <!-- -->
 
-- Encode the key ids (`kid`) in the header so you can look up the correct key
-  to use
+- Encode the key ids (`kid`) in the header so you can look up the correct key to use
 
   <!-- -->
 

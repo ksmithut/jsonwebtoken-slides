@@ -11,15 +11,29 @@ const PORT = Number.parseInt(getRequiredEnv('PORT'), 10)
 
 const app = express()
 
+const revokedTokens = new Set()
+
 app.use(
   expressjwt({
     algorithms: ['HS256'],
     secret: JWT_SECRET,
-    credentialsRequired: false
+    credentialsRequired: false,
+    isRevoked (req, token) {
+      revokedTokens.push
+    }
   }),
   (req, res, next) => {
-    req.user = req.auth?.user
-    next()
+    if (req.auth?.user) {
+      api
+        .getUserById(req.auth.user.id)
+        .then(user => {
+          req.user = user
+          next()
+        })
+        .catch(next)
+    } else {
+      next()
+    }
   }
 )
 
